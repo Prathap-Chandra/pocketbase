@@ -2,6 +2,17 @@
 
 This guide will help you install and set up PocketBase using Docker.
 
+## Table of Contents
+- [Prerequisites](#prerequisites)
+- [Step 1: Create a Dockerfile](#step-1-create-a-dockerfile)
+- [Step 2: Build the Docker Image](#step-2-build-the-docker-image)
+- [Step 3: Run the PocketBase Container](#step-3-you-can-run-the-pocketbase-container-directly-from-the-image)
+- [Step 4: Push the Docker Image to Docker Hub](#step-4-push-the-docker-image-to-docker-hub)
+- [Step 5: Pull the Docker Image from Docker Hub](#step-5-pull-the-docker-image-from-docker-hub)
+- [Step 6: Use the Docker Image from Docker Hub](#step-6-use-the-docker-image-from-docker-hub)
+- [Step 7: Access the PocketBase Admin Interface](#step-7-access-the-pocketbase-admin-interface)
+- [Step 8: Stopping and Cleaning Up Resources](#step-8-stopping-and-cleaning-up-resources)
+
 ## Prerequisites
 
 Docker installed on your system. You can download it from [Docker's official website](https://www.docker.com/products/docker-desktop).
@@ -100,3 +111,31 @@ Now you can easily share and deploy your PocketBase Docker image across differen
 I chose to run pocketbase at 7001.
 
 You can now access the PocketBase admin interface at `http://your_vps_ip:7001/_/` and the PocketBase API at `http://your_vps_ip:7001/api/`.
+
+## Step 8: Stopping and Cleaning Up Resources
+
+When you're done using PocketBase or want to clean up the resources, follow these steps:
+
+1. Stop the running container:
+
+```sh
+docker stop pocketbase-docker
+```
+
+2. Remove the container:
+
+```sh
+docker rm pocketbase-docker
+```
+
+3. Remove the image:
+
+```sh
+docker rmi codefun/pocketbase-docker:latest
+```
+
+4. Remove the volume:
+
+```sh
+rm -rf /Users/prathapchandra/Desktop/Codebase/Docker/volumes/pocketbase-docker
+```
